@@ -3,7 +3,7 @@ This project performs a data-driven analysis of historical Formula 1 data (from 
 
 Instead of relying on subjective feelings, this analysis uses the variation between qualifying grid positions and final race results to create a metric for race unpredictability.
 
-# **Methodology**
+## **Methodology**
 **Data Loading & Cleaning:** The analysis begins by loading and consolidating dozens of individual .csv files for both qualifying and race results from each season.
 
 **Creation of a Custom Metric:** A key metric, "Positions_Gained", was created by calculating the number of positions each driver made up from their starting grid spot to their finishing position. The total positions gained in a race served as its "action score."
