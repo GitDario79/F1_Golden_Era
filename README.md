@@ -23,6 +23,6 @@ The analysis revealed a clear trend in race unpredictability over the last four 
 
 The 1983-1993 era was conclusively the most action-packed, with an average of 69.2 positions gained per race, likely due to the combination of powerful turbo engines and lower mechanical reliability.
 
-The Refueling Era (1994-2009) was the second most volatile period, with an average of 45.7 positions gained.
+The Refuelling Era (1994-2009) started with the tragic accidents that took the lives of Ayrton Senna and Roland Ratzenberger. This period was characterised by a deep review of the rules to improve safety and reliability. It was the second most volatile period, with an average of 45.7 positions gained.
 
 The Modern DRS Era (2010-2021), despite tools to aid overtaking, was the least volatile, with an average of 37.4 positions gained, suggesting that increased car reliability and complex aerodynamics have led to more predictable race outcomes.
