@@ -1,7 +1,15 @@
 # F1_Golden_Era
 This project performs a data-driven analysis of historical Formula 1 data (from 1950 to 2021) to quantitatively determine which seasons and eras featured the most "action-packed" races.
-
 Instead of relying on subjective feelings, this analysis uses the variation between qualifying grid positions and final race results to create a metric for race unpredictability.
+
+Quantifying “Action” in Formula 1
+Two metrics—Position Volatility Index (PVI) and Lead-Change Rate (LCR)—score how “action-packed” a season is.
+
+Run locally (optional)
+python -m venv .venv && source .venv/bin/activate   # on Windows: .\.venv\Scripts\Activate.ps1
+pip install -r requirements.txt
+streamlit run app/streamlit_app.py
+CSV columns required: season, raceId, lap, driverId, position, leader
 
 ## **Methodology**
 **Data Loading & Cleaning:** The analysis begins by loading and consolidating dozens of individual .csv files for both qualifying and race results from each season.
@@ -28,3 +36,9 @@ The Refuelling Era (1994-2009) started with the tragic accidents that took the l
 The Modern DRS Era (2010-2021), despite tools to aid overtaking, was the least volatile, with an average of 37.4 positions gained, suggesting that increased car reliability and complex aerodynamics have led to more predictable race outcomes.
 
 Identified Fernando Alonso as the king of overtakes in Formula One history
+
+
+![tests](https://img.shields.io/github/actions/workflow/status/GitDario79/F1_Golden_Era/python.yml?label=tests)
+![license](https://img.shields.io/badge/license-MIT-informational)
+![python](https://img.shields.io/badge/python-3.11+-blue)
+
