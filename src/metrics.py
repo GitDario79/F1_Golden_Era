@@ -1,11 +1,20 @@
 import pandas as pd
 
 def _race_pvi(df_race: pd.DataFrame) -> float:
-    # mean absolute lap-to-lap position change per driver, averaged across drivers
-    df_race = df_race.sort_values(["driverId", "lap"])
-    df_race["pos_shift"] = df_race.groupby("driverId")["position"].diff().abs()
-    per_driver = df_race.groupby("driverId")["pos_shift"].mean(min_count=1)
+    """
+    Position Volatility Index (PVI):
+    mean absolute lap-to-lap position change per driver, averaged across drivers.
+    Works across pandas versions (no min_count arg).
+    """
+    df = df_race.sort_values(["driverId", "lap"]).copy()
+    df["pos_shift"] = df.groupby("driverId")["position"].diff().abs()
+    # Default mean() skips NaNs; then drop remaining NaNs before overall mean
+    per_driver = df.groupby("driverId")["pos_shift"].mean()
+    per_driver = per_driver.dropna()
+    if per_driver.empty:
+        return 0.0
     return float(per_driver.mean())
+
 
 def _race_lcr(df_race: pd.DataFrame) -> float:
     # leader changes per 100 laps
