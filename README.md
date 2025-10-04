@@ -36,3 +36,9 @@ The Refuelling Era (1994-2009) started with the tragic accidents that took the l
 The Modern DRS Era (2010-2021), despite tools to aid overtaking, was the least volatile, with an average of 37.4 positions gained, suggesting that increased car reliability and complex aerodynamics have led to more predictable race outcomes.
 
 Identified Fernando Alonso as the king of overtakes in Formula One history
+
+
+![tests](https://img.shields.io/github/actions/workflow/status/GitDario79/F1_Golden_Era/python.yml?label=tests)
+![license](https://img.shields.io/badge/license-MIT-informational)
+![python](https://img.shields.io/badge/python-3.11+-blue)
+
