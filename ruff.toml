@@ -1,0 +1,13 @@
+line-length = 100
+target-version = "py311"
+
+# Don't lint notebooks (they often have long lines and repeated imports)
+extend-exclude = ["notebooks/**", "*.ipynb"]
+
+[lint]
+select = ["E", "F"]
+ignore = []
+
+# If you ever want to keep notebooks but silence only a few rules:
+# [lint.per-file-ignores]
+# "*.ipynb" = ["E501", "F401", "F811"]
