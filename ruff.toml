@@ -1,0 +1,7 @@
+line-length = 100
+target-version = "py311"
+
+[lint]
+# Keep it friendly: only basic errors/warnings (no import-sorting).
+select = ["E", "F"]
+ignore = []
