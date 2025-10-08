@@ -1,14 +1,16 @@
-# make the repo root importable when Streamlit runs from app/
+# Ensure repo root is importable when Streamlit runs from app/
 import sys
 from pathlib import Path
+
 ROOT = Path(__file__).resolve().parents[1]
 if str(ROOT) not in sys.path:
     sys.path.insert(0, str(ROOT))
 
+from src.metrics import season_summary
 
 import streamlit as st
 import pandas as pd
-from src.metrics import season_summary
+
 
 st.set_page_config(page_title="F1 Golden Era", layout="wide")
 st.title("F1 Golden Era – Action Index (MVP)")
