@@ -1,7 +1,4 @@
-pandas
-numpy
-matplotlib
-plotly
-scikit-learn
 streamlit
+pandas
+plotly
 pytest
