@@ -3,5 +3,10 @@ __pycache__/
 .venv/
 .env
 .ipynb_checkpoints/
-data/*
+.streamlit/
+
+# keep large/raw data out of git, but allow the demo CSV
+data/raw/**
+!data/sample_results.csv
+
 docs/*.tmp
