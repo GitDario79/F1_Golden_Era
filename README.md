@@ -1,9 +1,9 @@
-# F1_Golden_Era
+﻿# F1_Golden_Era
 This project performs a data-driven analysis of historical Formula 1 data (from 1950 to 2021) to quantitatively determine which seasons and eras featured the most "action-packed" races.
 Instead of relying on subjective feelings, this analysis uses the variation between qualifying grid positions and final race results to create a metric for race unpredictability.
 
-Quantifying “Action” in Formula 1
-Two metrics—Position Volatility Index (PVI) and Lead-Change Rate (LCR)—score how “action-packed” a season is.
+Quantifying â€œActionâ€ in Formula 1
+Two metricsâ€”Position Volatility Index (PVI) and Lead-Change Rate (LCR)â€”score how â€œaction-packedâ€ a season is.
 
 Run locally (optional)
 python -m venv .venv && source .venv/bin/activate   # on Windows: .\.venv\Scripts\Activate.ps1
@@ -45,3 +45,4 @@ Identified Fernando Alonso as the king of overtakes in Formula One history
 ### Screenshots
 ![Points by Season](assets/points_by_season.png)
 ![Total Wins](assets/total_wins.png)
+
