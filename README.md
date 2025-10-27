@@ -42,3 +42,7 @@ Identified Fernando Alonso as the king of overtakes in Formula One history
 ![license](https://img.shields.io/badge/license-MIT-informational)
 ![python](https://img.shields.io/badge/python-3.11+-blue)
 
+### Screenshots
+![Overview](assets/app_overview.png)
+![Points by Season](assets/points_by_season.png)
+![Total Wins](assets/total_wins.png)
