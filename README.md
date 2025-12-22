@@ -1,5 +1,5 @@
 ﻿# F1_Golden_Era
-This project performs a data-driven analysis of historical Formula 1 data (from 1950 to 2021) to quantitatively determine which seasons and eras featured the most "action-packed" races.
+This project performs a data-driven analysis of historical Formula 1 data (from 1983 to 2021) to quantitatively determine which seasons and eras featured the most "action-packed" races.
 Instead of relying on subjective feelings, this analysis uses the variation between qualifying grid positions and final race results to create a metric for race unpredictability.
 
 Quantifying â€œActionâ€ in Formula 1
