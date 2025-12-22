@@ -11,16 +11,6 @@ if str(ROOT) not in sys.path:
 
 from src.metrics import season_summary  # noqa: E402
 
-
-
-# Add repo root to sys.path so "src" is importable when running from app/
-ROOT = Path(__file__).resolve().parents[1]
-if str(ROOT) not in sys.path:
-    sys.path.insert(0, str(ROOT))
-
-from src.metrics import season_summary  # noqa: E402
-
-
 # -----------------------
 # Helpers
 # -----------------------
@@ -132,7 +122,9 @@ if mode == "gains":
     c3.metric("Total positions gained (year)", f"{dfx['Positions_Gained'].sum():.0f}")
 
     st.write("Race-level table (sorted by action score)")
-    st.dataframe(by_race, use_container_width=True)
+    by_race_sorted = by_race.sort_values("Race_Action_Score", ascending=False)
+    st.dataframe(by_race_sorted, use_container_width=True)
+
 
     # Driver leaderboard
     st.write("Driver leaderboard (total positions gained)")
@@ -155,7 +147,8 @@ if mode == "race_action":
 
     st.subheader(f"{year} — Race Action (pre-aggregated)")
     st.metric("Avg action score", f"{by_race['Race_Action_Score'].mean():.2f}")
-    st.dataframe(by_race.sort_values("Race_Action_Score", ascending=False), use_container_width=True)
+    by_race_sorted = by_race.sort_values("Race_Action_Score", ascending=False)
+    st.dataframe(by_race_sorted, use_container_width=True)
     st.stop()
 
 # -----------------------
@@ -165,3 +158,5 @@ st.error("CSV format not recognized.")
 st.write("Columns found:", list(df.columns))
 st.write("Expected either lap-level columns:", sorted(LAP_COLS))
 st.write("…or grid→finish columns:", sorted(GAINS_COLS))
+st.stop()
+
