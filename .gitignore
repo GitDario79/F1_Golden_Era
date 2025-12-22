@@ -9,4 +9,14 @@ __pycache__/
 data/raw/**
 !data/sample_results.csv
 
+# generated/processed outputs (created locally)
+data/processed/
+
+# optional: keep a small demo processed CSV if you ever add one
+#!data/processed/sample_processed.csv
+
+# stray notebooks
+Untitled.ipynb
+
+
 docs/*.tmp
