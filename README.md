@@ -1,48 +1,56 @@
-﻿# F1_Golden_Era
-This project performs a data-driven analysis of historical Formula 1 data (from 1950 to 2021) to quantitatively determine which seasons and eras featured the most "action-packed" races.
-Instead of relying on subjective feelings, this analysis uses the variation between qualifying grid positions and final race results to create a metric for race unpredictability.
+# F1 Golden Era — Quantifying “Action” in Formula 1 (1983–2021)
 
-Quantifying â€œActionâ€ in Formula 1
-Two metricsâ€”Position Volatility Index (PVI) and Lead-Change Rate (LCR)â€”score how â€œaction-packedâ€ a season is.
+This project performs a data-driven analysis of historical Formula 1 data (**1983–2021**) to identify which seasons and eras featured the most “action-packed” races.
 
-Run locally (optional)
-python -m venv .venv && source .venv/bin/activate   # on Windows: .\.venv\Scripts\Activate.ps1
-pip install -r requirements.txt
-streamlit run app/streamlit_app.py
-CSV columns required: season, raceId, lap, driverId, position, leader
-
-## **Methodology**
-**Data Loading & Cleaning:** The analysis begins by loading and consolidating dozens of individual .csv files for both qualifying and race results from each season.
-
-**Creation of a Custom Metric:** A key metric, "Positions_Gained", was created by calculating the number of positions each driver made up from their starting grid spot to their finishing position. The total positions gained in a race served as its "action score."
-
-**Data Reliability Filtering:** Initial exploration revealed that qualifying data prior to 1983 was sparse and unreliable. To ensure the integrity of the results, all data from before the 1983 season was filtered out of the final analysis.
-
-**Era-Based Analysis:** The seasons from 1983 to 2021 were categorised into three distinct sporting eras to compare their average "action score":
-
-High-Action / No Refueling (1983-1993)
-
-Refueling Allowed (1994-2009)
-
-Modern / No Refueling (2010-2021)
-
-**Key Findings**
-The analysis revealed a clear trend in race unpredictability over the last four decades:
-
-The 1983-1993 era was conclusively the most action-packed, with an average of 69.2 positions gained per race, likely due to the combination of powerful turbo engines and lower mechanical reliability.
-
-The Refuelling Era (1994-2009) started with the tragic accidents that took the lives of Ayrton Senna and Roland Ratzenberger. This period was characterised by a deep review of the rules to improve safety and reliability. It was the second most volatile period, with an average of 45.7 positions gained.
-
-The Modern DRS Era (2010-2021), despite tools to aid overtaking, was the least volatile, with an average of 37.4 positions gained, suggesting that increased car reliability and complex aerodynamics have led to more predictable race outcomes.
-
-Identified Fernando Alonso as the king of overtakes in Formula One history
-
+Because we don’t have a reliable **overtake count** in the dataset used here, we use **grid-to-finish position gains** as a practical proxy for race “action”.
 
 ![tests](https://img.shields.io/github/actions/workflow/status/GitDario79/F1_Golden_Era/python.yml?label=tests)
 ![license](https://img.shields.io/badge/license-MIT-informational)
 ![python](https://img.shields.io/badge/python-3.11+-blue)
 
-### Screenshots
-![Points by Season](assets/points_by_season.png)
-![Total Wins](assets/total_wins.png)
+---
+
+## Core idea (the metric)
+
+For each driver in each Grand Prix:
+
+- `Quali_Pos` = qualifying/grid position
+- `Race_Pos` = finishing position
+
+Compute:
+
+- `Position_Change = Quali_Pos - Race_Pos`
+- `Positions_Gained = max(Position_Change, 0)`  *(only gains; position losses are clipped to 0)*
+
+Then:
+
+- **Race action score** = sum of `Positions_Gained` across all drivers in that race
+- **Season action score** = mean race action score across races in that season
+
+
+---
+
+## What you can find in this project
+
+### Season & era “action” ranking
+- Average positions gained per race for each season
+- Comparison across three sporting eras:
+  - **High-Action / No Refueling (1983–1993)**
+  - **Refueling Allowed (1994–2009)**
+  - **Modern / No Refueling (2010–2021)**
+
+### Driver-level analysis (1983–2021)
+- **Overtake King per year:** driver with max total `Positions_Gained` in that season
+- **Career overtake leaders:** drivers ranked by total `Positions_Gained` (1983–2021)
+- **Overtake efficiency (ratio):** `Positions_Gained / Races_Attended` (with a minimum races filter to avoid one-off outliers)
+
+
+---
+
+## Dataset & coverage
+
+The raw dataset (from Kaggle) contained seasons earlier than 1983, but **the analysis intentionally filters to 1983+** because qualifying/grid data is sparse or inconsistent for many earlier years.
+
+---
+
 

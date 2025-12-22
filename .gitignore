@@ -1,12 +1,42 @@
+# Python bytecode
 __pycache__/
 *.pyc
+
+# Virtual environments / secrets
 .venv/
 .env
+
+# Jupyter
 .ipynb_checkpoints/
+
+# Streamlit
 .streamlit/
 
-# keep large/raw data out of git, but allow the demo CSV
+# -----------------------------
+# Data (keep repo lightweight)
+# -----------------------------
+
+# Raw data (usually large) -> ignore everything under data/raw
 data/raw/**
+
+# Allow a small demo raw CSV (optional)
 !data/sample_results.csv
 
+# Processed/generated outputs -> ignore everything under data/processed
+data/processed/**
+
+# Allow a small demo processed CSV (optional)
+!data/processed/
+!data/processed/sample_processed.csv
+
+# Local extracted datasets (optional folder you may use)
+datasets/
+
+# -----------------------------
+# Misc
+# -----------------------------
+# Temporary docs files
 docs/*.tmp
+
+# Stray notebooks created by Jupyter/VS Code
+Untitled.ipynb
